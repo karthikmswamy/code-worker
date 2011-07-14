@@ -10,7 +10,7 @@ def encryptDESAndWriteData(appID, sPwd, fileName, key):
 	ciphPwd = encrypt(key, sPwd)
 
 	f = open(fileName, "w")
-	fString = json.dumps({"GAppID":ciphAppID, "ServPwd": ciphPwd})
+	fString = json.dumps({"APIKey":ciphAppID, "UName": ciphPwd})
 	print fString
 	f.write(fString)
 	f.close()
@@ -19,8 +19,8 @@ def encryptDESAndWriteData(appID, sPwd, fileName, key):
 def readDataAndDecryptDES(fileName, key):
 	f = open(fileName, "r")
 	decStr = json.loads(f.read())
-	appid = decrypt(key, decStr['GAppID'])
-	uname = decrypt(key, decStr['ServPwd'])
+	appid = decrypt(key, decStr['APIKey'])
+	uname = decrypt(key, decStr['UName'])
 	f.close()
 	return appid,uname
 
