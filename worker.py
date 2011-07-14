@@ -153,8 +153,6 @@ def fetchModelFromURL(URL):
 		print 'Logs updated'
 	else:
 		print 'Job reserved by ' + wrkrInPrcs
-		continue
-
 
 def gitCloneUpdateRepo(repoFolder, parentName, folderName, fExecute):
 	# Master or target?
