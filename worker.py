@@ -5,39 +5,41 @@
 # Clones a repo retrieved from data retrieved from the URL
 # Executes a file and logs the result from the downloaded repo
 
-import urllib2, json, os, math, time, subprocess
+import urllib2, json, os, math, time
+import subprocess, sys, encryptData
 from commands import getoutput as cmd
+from github2.client import Github
+from encryptData import encryptDESAndWriteData
+
+if len(sys.argv)==1:
+	print 'Decryption key not found'
+	sys.exit()
+else:
+	decKey = sys.argv[1]
+
+appid,uname = encryptData.readDataAndDecryptDES('keys.txt', decKey)
+
+# GitHub configurations
+GITHUB_USER = uname
+GITHUB_TOKEN = appid
+
+# API Object
+github = Github(username=GITHUB_USER, api_token=GITHUB_TOKEN)
 
 baseURL = 'http://code-comparison.appspot.com/rest/'
+noJobs = False
+itr = 0
+wrkrName = 'worker1'
 
 # The main worker thread that fetches a job
 def mainWorker():
+	global itr, noJobs
 	URL = baseURL + 'metadata'
 	f = urllib2.urlopen(URL)
-
 	jsonStr = json.load(f)
-	for i in range(0, len(jsonStr['type'])):
-		# Set this condition as there are no test jobs for Worker
-		if jsonStr['type'][i].strip().lower() != 'Worker':
-			fetchJobFromURL(jsonStr['type'][i])
-	f.close()
-
-# Fetches a job from a given URL
-# Params: job - the type of the job as string, to be retrieved
-def fetchJobFromURL(job):
-	# Concatenate with the base URL
-	URL = baseURL + job + '?feq_jobType=TEST&fne_status=PROCESSED'
-	itr = 0
 	while True:
 		itr = itr + 1
-		f = urllib2.urlopen(URL)
-		req = f.read()
-
-		jobStr = json.loads(req)
-		numJobs = len(jobStr)
-		print 'There are ' + str(numJobs) + ' TEST jobs pending'
-		# There are no jobs pending, hence sleep and check again
-		if numJobs == 0:
+		if noJobs:
 			# Checks to see if there are jobs available every 2^iteration
 			# Once time reaches 64, it checks constantly every minute
 			sleepTime = math.pow(2,itr)
@@ -49,8 +51,34 @@ def fetchJobFromURL(job):
 				print 'Checking back every minute'
 				time.sleep(60)
 				continue
+		else:
+			for i in range(0, len(jsonStr['type'])):
+				# Set this condition as there are no test jobs for Worker
+				if jsonStr['type'][i].strip().lower() == 'job':
+					fetchJobFromURL(jsonStr['type'][i])
+	f.close()
 
+# Fetches a job from a given URL
+# Params: job - the type of the job as string, to be retrieved
+def fetchJobFromURL(job):
+	global itr, noJobs
+	# Concatenate with the base URL
+	URL = baseURL + job + '?feq_jobType=TEST&fne_status=PROCESSED'
+	# URL = baseURL + job
+
+	f = urllib2.urlopen(URL)
+	req = f.read()
+
+	jobStr = json.loads(req)
+	numJobs = len(jobStr)
+	print 'There are ' + str(numJobs) + ' jobs pending'
+	# There are no jobs pending, hence sleep and check again
+	if numJobs == 0:
+		noJobs = True
+	else:
+		noJobs = False
 		for i in range(0, numJobs):
+			print 'Processing job ' + str(i)
 			itr = 0
 			if jobStr[i]['jobType'] != 'KEVIN':
 				fetchURL = baseURL + job + '/' + jobStr[i]['key']
@@ -59,62 +87,71 @@ def fetchJobFromURL(job):
 # Fetches a job from a given URL using the key
 # Params: URL - the URL as string, of the job to be retrieved
 def fetchModelFromURL(URL):
-	print 'Processing job from : ' + URL
+	global wrkrName
+	# print 'Processing job from : ' + URL
 	u = urllib2.urlopen(URL)
 	req = u.read()
 
 	modelStr = json.loads(req)
-	# Obtain the repository and command strings
+	print URL
+	# Find which worker reserved this job, if any
+	print modelStr
+	wrkrInPrcs = modelStr['workerReserved'].strip()
 
-	tarRepos = modelStr['target'].strip()
-	masRepos = modelStr['master'].strip()
-	fExecute = modelStr['command']
+	if len(wrkrInPrcs)==0:
+		data = json.dumps({'workerReserved':wrkrName})
+		result = json.loads(urllib2.urlopen(urllib2.Request(URL, data, {'Content-Type': 'application/json'})).read())
 
-	# Obtain the folder from the git URL
-	sp = tarRepos.partition('/')
-	tarRepoFolder = sp[2].replace('.git','')
-	sp = masRepos.partition('/')
-	masRepoFolder = sp[2].replace('.git','')
+		# Obtain the repository and command strings
+		tarRepos = modelStr['target'].strip()
+		masRepos = modelStr['master'].strip()
+		fExecute = modelStr['command']
 
-	# Clone the master and target repos
-	print '----------Master:' + masRepos
-	gitCloneUpdateRepo(masRepos, 'master', masRepoFolder, fExecute)
-	print '----------Target:' + tarRepos
-	gitCloneUpdateRepo(tarRepos, 'target', tarRepoFolder, fExecute)
+		# Obtain the folder from the git URL
+		sp = tarRepos.partition('/')
+		tarRepoFolder = sp[2].replace('.git','')
+		sp = masRepos.partition('/')
+		masRepoFolder = sp[2].replace('.git','')
 
-	# Execute the command retrieved from the JSON string
-	# Execute the command above the master, target dir
-	fContents = ''
-	JSONValid = False
-	print os.path.abspath('.') + '<------------'
-	print('Executing \"' + fExecute + '\"')
+		# Clone the master and target repos
+		print '----------Master:' + masRepos
+		gitCloneUpdateRepo(masRepos, 'master', masRepoFolder, fExecute)
+		print '----------Target:' + tarRepos
+		gitCloneUpdateRepo(tarRepos, 'target', tarRepoFolder, fExecute)
 
-	# Capturing output of the device on log.txt
-	fnull = open('log.txt', 'w')
-	result = subprocess.call(fExecute, shell = True, stdout = fnull, stderr = fnull)
-	fnull.close()
+		# Execute the command retrieved from the JSON string
+		# Execute the command above the master, target dir
+		fContents = ''
+		JSONValid = False
+		# print os.path.abspath('.') + '<------------'
+		print('Executing \"' + fExecute + '\"')
 
-	if os.path.isfile('ccresult.json'):
-		f = open('ccresult.json','r+')
-		fContents = f.read()
+		# Capturing output of the device on log.txt
+		fnull = open('log.txt', 'w')
+		result = subprocess.call(fExecute, shell = True, stdout = fnull, stderr = fnull)
+		fnull.close()
+
+		if os.path.isfile('ccresult.json'):
+			f = open('ccresult.json','r+')
+			fContents = f.read()
+			f.write('')
+			f.close()
+			JSONValid = checkForJSONValidity(fContents)
+
+		f = open('log.txt', 'r+')
+		log = f.read()
 		f.write('')
-		f.close()
-		JSONValid = checkForJSONValidity(fContents)
+		#print 'Log: ' + log
+		f.close
 
-	f = open('log.txt', 'r+')
-	log = f.read()
-	f.write('')
-	#print 'Log: ' + log
-	f.close
-
-	if JSONValid:
-		data = json.dumps({'status':'PROCESSED', 'log':log, 'jsonResult':fContents})
-	else:
-		data = json.dumps({'status':'PROCESSED', 'log':log, 'jsonResult':'Invalid JSON'})
-	fContents = ''
-	#print 'Data: ' + data
-	result = json.loads(urllib2.urlopen(urllib2.Request(URL, data, {'Content-Type': 'application/json'})).read())
-	print 'Logs updated'
+		if JSONValid:
+			data = json.dumps({'status':'PROCESSED', 'log':log, 'jsonResult':fContents})
+		else:
+			data = json.dumps({'status':'PROCESSED', 'log':log, 'jsonResult':'Invalid JSON'})
+		fContents = ''
+		#print 'Data: ' + data
+		result = json.loads(urllib2.urlopen(urllib2.Request(URL, data, {'Content-Type': 'application/json'})).read())
+		print 'Logs updated'
 
 
 def gitCloneUpdateRepo(repoFolder, parentName, folderName, fExecute):

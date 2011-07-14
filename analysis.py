@@ -170,12 +170,12 @@
       
         <li class="for-owner" style="display:none"><a href="/SMU-SIS/code-worker/admin" class="minibutton btn-admin "><span><span class="icon"></span>Admin</span></a></li>
         <li>
-          <a href="/SMU-SIS/code-worker/toggle_watch" class="minibutton btn-watch " id="watch_button" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', '038f0ab3713b835b3daad6a46364462f6dd2650d'); f.appendChild(s);f.submit();return false;" style="display:none"><span><span class="icon"></span>Watch</span></a>
-          <a href="/SMU-SIS/code-worker/toggle_watch" class="minibutton btn-watch " id="unwatch_button" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', '038f0ab3713b835b3daad6a46364462f6dd2650d'); f.appendChild(s);f.submit();return false;" style="display:none"><span><span class="icon"></span>Unwatch</span></a>
+          <a href="/SMU-SIS/code-worker/toggle_watch" class="minibutton btn-watch " id="watch_button" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', '790938f2f90334cc27cc9ff7cbca6ed40684359a'); f.appendChild(s);f.submit();return false;" style="display:none"><span><span class="icon"></span>Watch</span></a>
+          <a href="/SMU-SIS/code-worker/toggle_watch" class="minibutton btn-watch " id="unwatch_button" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', '790938f2f90334cc27cc9ff7cbca6ed40684359a'); f.appendChild(s);f.submit();return false;" style="display:none"><span><span class="icon"></span>Unwatch</span></a>
         </li>
         
           
-            <li class="for-notforked" style="display:none"><a href="/SMU-SIS/code-worker/fork" class="minibutton btn-fork " id="fork_button" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', '038f0ab3713b835b3daad6a46364462f6dd2650d'); f.appendChild(s);f.submit();return false;"><span><span class="icon"></span>Fork</span></a></li>
+            <li class="for-notforked" style="display:none"><a href="/SMU-SIS/code-worker/fork" class="minibutton btn-fork " id="fork_button" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', '790938f2f90334cc27cc9ff7cbca6ed40684359a'); f.appendChild(s);f.submit();return false;"><span><span class="icon"></span>Fork</span></a></li>
             <li class="for-hasfork" style="display:none"><a href="#" class="minibutton btn-fork " id="your_fork_button"><span><span class="icon"></span>Your Fork</span></a></li>
           
 
@@ -198,7 +198,7 @@
     <li><a href="/SMU-SIS/code-worker" class="selected" highlight="repo_source">Source</a></li>
     <li><a href="/SMU-SIS/code-worker/commits/master" highlight="repo_commits">Commits</a></li>
     <li><a href="/SMU-SIS/code-worker/network" highlight="repo_network">Network</a></li>
-    <li><a href="/SMU-SIS/code-worker/pulls" highlight="repo_pulls">Pull Requests (0)</a></li>
+    <li><a href="/SMU-SIS/code-worker/pulls" highlight="repo_pulls">Pull Requests (1)</a></li>
 
     
       <li><a href="/SMU-SIS/code-worker/forkqueue" highlight="repo_fork_queue">Fork Queue</a></li>
@@ -206,7 +206,7 @@
 
     
       
-      <li><a href="/SMU-SIS/code-worker/issues" highlight="issues">Issues (0)</a></li>
+      <li><a href="/SMU-SIS/code-worker/issues" highlight="issues">Issues (1)</a></li>
     
 
                 <li><a href="/SMU-SIS/code-worker/wiki" highlight="repo_wiki">Wiki (0)</a></li>
@@ -277,7 +277,7 @@
       </div>
 
       <div id="repository_description_edit" style="display:none;" class="inline-edit">
-        <form action="/SMU-SIS/code-worker/admin/update" method="post"><div style="margin:0;padding:0"><input name="authenticity_token" type="hidden" value="038f0ab3713b835b3daad6a46364462f6dd2650d" /></div>
+        <form action="/SMU-SIS/code-worker/admin/update" method="post"><div style="margin:0;padding:0"><input name="authenticity_token" type="hidden" value="790938f2f90334cc27cc9ff7cbca6ed40684359a" /></div>
           <input type="hidden" name="field" value="repository_description">
           <input type="text" class="textfield" name="value" value="Python-based worker to support CodeComparison.com">
           <div class="form-actions">
@@ -292,7 +292,7 @@
       </div>
 
       <div id="repository_homepage_edit" style="display:none;" class="inline-edit">
-        <form action="/SMU-SIS/code-worker/admin/update" method="post"><div style="margin:0;padding:0"><input name="authenticity_token" type="hidden" value="038f0ab3713b835b3daad6a46364462f6dd2650d" /></div>
+        <form action="/SMU-SIS/code-worker/admin/update" method="post"><div style="margin:0;padding:0"><input name="authenticity_token" type="hidden" value="790938f2f90334cc27cc9ff7cbca6ed40684359a" /></div>
           <input type="hidden" name="field" value="repository_homepage">
           <input type="text" class="textfield" name="value" value="">
           <div class="form-actions">
@@ -316,8 +316,8 @@
     
   </ul>
   <input type="text" spellcheck="false" class="url-field" />
-        <span style="display:none" id="clippy_4975" class="url-box-clippy"></span>
-      <span id="clippy_tooltip_clippy_4975" class="clippy-tooltip tooltipped" title="copy to clipboard">
+        <span style="display:none" id="clippy_2570" class="url-box-clippy"></span>
+      <span id="clippy_tooltip_clippy_2570" class="clippy-tooltip tooltipped" title="copy to clipboard">
       <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
               width="14"
               height="14"
@@ -327,7 +327,7 @@
       <param name="allowScriptAccess" value="always" />
       <param name="quality" value="high" />
       <param name="scale" value="noscale" />
-      <param NAME="FlashVars" value="id=clippy_4975&amp;copied=&amp;copyto=">
+      <param NAME="FlashVars" value="id=clippy_2570&amp;copied=&amp;copyto=">
       <param name="bgcolor" value="#FFFFFF">
       <param name="wmode" value="opaque">
       <embed src="https://gs1.wac.edgecastcdn.net/80460E/assets/flash/clippy.swf?v5"
@@ -338,7 +338,7 @@
              allowScriptAccess="always"
              type="application/x-shockwave-flash"
              pluginspage="http://www.macromedia.com/go/getflashplayer"
-             FlashVars="id=clippy_4975&amp;copied=&amp;copyto="
+             FlashVars="id=clippy_2570&amp;copied=&amp;copyto="
              bgcolor="#FFFFFF"
              wmode="opaque"
       />
@@ -696,7 +696,7 @@
           
         </ul>
         <ul class="sosueme">
-          <li class="main">&copy; 2011 <span id="_rrt" title="0.99496s from fe2.rs.github.com">GitHub</span> Inc. All rights reserved.</li>
+          <li class="main">&copy; 2011 <span id="_rrt" title="0.07928s from fe2.rs.github.com">GitHub</span> Inc. All rights reserved.</li>
           <li><a href="/site/terms">Terms of Service</a></li>
           <li><a href="/site/privacy">Privacy</a></li>
           <li><a href="https://github.com/security">Security</a></li>
@@ -704,7 +704,7 @@
       </div>
     </div><!-- /#footer -->
 
-    <script>window._auth_token = "038f0ab3713b835b3daad6a46364462f6dd2650d"</script>
+    <script>window._auth_token = "790938f2f90334cc27cc9ff7cbca6ed40684359a"</script>
     
 
 <div id="keyboard_shortcuts_pane" class="instapaper_ignore readability-extra" style="display:none">
@@ -1015,7 +1015,7 @@ I think you should use an
     
     
     
-    <script type="text/javascript">(function(){var d=document;var e=d.createElement("script");e.async=true;e.src="https://d1ros97qkrwjf5.cloudfront.net/14/eum/rum.js	";e.type="text/javascript";var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(e,s);})();NREUMQ.push(["nrf2","beacon-1.newrelic.com","2f94e4d8c2",64799,"dw1bEBZcX1RWRhoEClsAGhcMXEQ=",0.0,994,new Date().getTime()])</script>
+    <script type="text/javascript">(function(){var d=document;var e=d.createElement("script");e.async=true;e.src="https://d1ros97qkrwjf5.cloudfront.net/14/eum/rum.js	";e.type="text/javascript";var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(e,s);})();NREUMQ.push(["nrf2","beacon-1.newrelic.com","2f94e4d8c2",64799,"dw1bEBZcX1RWRhoEClsAGhcMXEQ=",0,75,new Date().getTime()])</script>
   </body>
 </html>
 

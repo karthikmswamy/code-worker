@@ -26,27 +26,36 @@ for k in result:
 #Now that we now that there are no TEST jobs that have not been marked as PROCESSED, we can create some new TEST jobs for the worker to process. 
 result = get_unprocessed_test_jobs()
 
-test_jobs = [{'command':'python -V', 'jobType':'TEST'}, 
-			 {'command':'java -version', 'jobType':'TEST'}, 
-			 {'command':'git --version', 'jobType':'TEST'}, 
-			 {'command':'python master/code-worker/tasks/pep8/pep8.py -h', 'jobType':'TEST'},
-			 {'command':'python master/code-worker/tasks/clonedigger/clonedigger.py -h', 'jobType':'TEST'}, 
+test_jobs = [{'command':'python -V', 'jobType':'TEST',
+			  'workerReserved':'none'}, 
+			 {'command':'java -version', 'jobType':'TEST',
+			  'workerReserved':'none'}, 
+			 {'command':'git --version', 'jobType':'TEST',
+			  'workerReserved':'none'}, 
+			 {'command':'python master/code-worker/tasks/pep8/pep8.py -h', 'jobType':'TEST',
+			  'workerReserved':'none'},
+			 {'command':'python master/code-worker/tasks/clonedigger/clonedigger.py -h', 'jobType':'TEST',
+			  'workerReserved':'none'}, 
 			 # pep8 on public code-worker repo
 			 {'command':'python master/code-worker/tasks/pep8/pep8.py target --count -qq', 
 			  'target':'git@github.com:SMU-SIS/code-worker.git',
-			  'jobType':'TEST'},
+			  'jobType':'TEST',
+			  'workerReserved':'none'},
 			  # clonedigger on public code-worker repo
 			  {'command':'python code-worker/tasks/clonedigger/clonedigger.py --fast target', 
 			  'target':'git@github.com:SMU-SIS/code-worker.git',
-			  'jobType':'TEST'},
+			  'jobType':'TEST',
+			  'workerReserved':'none'},
 			  # pep8 on private CodeComparison repo
 			 {'command':'python master/code-worker/tasks/pep8/pep8.py target --count -qq', 
 			  'target':'git@github.com:SMU-SIS/CodeComparison.git',
-			  'jobType':'TEST'},
+			  'jobType':'TEST',
+			  'workerReserved':'none'},
 			  {'command':'diff -q target master', 
 			  'target':'git@github.com:SMU-SIS/CodeComparison.git',
 			  'master':'git@github.com:SMU-SIS/CodeComparison.git',
-			  'jobType':'TEST'},
+			  'jobType':'TEST',
+			  'workerReserved':'none'},
 			 ]
 
 for job in test_jobs:
