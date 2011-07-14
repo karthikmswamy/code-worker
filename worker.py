@@ -95,10 +95,9 @@ def fetchModelFromURL(URL):
 	modelStr = json.loads(req)
 	print URL
 	# Find which worker reserved this job, if any
-	print modelStr
 	wrkrInPrcs = modelStr['workerReserved'].strip()
 
-	if len(wrkrInPrcs)==0:
+	if wrkrInPrcs=='none':
 		data = json.dumps({'workerReserved':wrkrName})
 		result = json.loads(urllib2.urlopen(urllib2.Request(URL, data, {'Content-Type': 'application/json'})).read())
 
@@ -152,6 +151,9 @@ def fetchModelFromURL(URL):
 		#print 'Data: ' + data
 		result = json.loads(urllib2.urlopen(urllib2.Request(URL, data, {'Content-Type': 'application/json'})).read())
 		print 'Logs updated'
+	else:
+		print 'Job reserved by ' + wrkrInPrcs
+		continue
 
 
 def gitCloneUpdateRepo(repoFolder, parentName, folderName, fExecute):
