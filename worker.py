@@ -39,10 +39,13 @@ def mainWorker():
 	jsonStr = json.load(f)
 	while True:
 		itr = itr + 1
+		if getUnprocessedTestJobs() > 0:
+			noJobs = False
 		if noJobs:
 			# Checks to see if there are jobs available every 2^iteration
 			# Once time reaches 64, it checks constantly every minute
 			sleepTime = math.pow(2,itr)
+			
 			if sleepTime < 64:
 				print 'Checking back in ' + str(sleepTime) + ' seconds'
 				time.sleep(sleepTime)
@@ -57,6 +60,13 @@ def mainWorker():
 				if jsonStr['type'][i].strip().lower() == 'job':
 					fetchJobFromURL(jsonStr['type'][i])
 	f.close()
+
+def getUnprocessedTestJobs():
+	global baseURL
+	url = baseURL + 'Job?feq_jobType=TEST&fne_status=PROCESSED'                   
+	data = None                                                                 
+	result = json.loads(urllib2.urlopen(urllib2.Request(url, data, {'Content-Type': 'application/json'})).read())
+	return len(result)
 
 # Fetches a job from a given URL
 # Params: job - the type of the job as string, to be retrieved
