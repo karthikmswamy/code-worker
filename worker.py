@@ -11,11 +11,12 @@ from commands import getoutput as cmd
 from github2.client import Github
 from encryptData import encryptDESAndWriteData
 
-if len(sys.argv)==1:
-	print 'Decryption key not found'
+if len(sys.argv) < 3:
+	print 'Decryption key or worker name not found'
 	sys.exit()
-else:
+elif len(sys.argv) == 3:
 	decKey = sys.argv[1]
+	wrkrName = sys.argv[2]
 
 appid,uname = encryptData.readDataAndDecryptDES('keys.txt', decKey)
 
@@ -29,7 +30,6 @@ github = Github(username=GITHUB_USER, api_token=GITHUB_TOKEN)
 baseURL = 'http://code-comparison.appspot.com/rest/'
 noJobs = False
 itr = 0
-wrkrName = 'laptop'
 
 # The main worker thread that fetches a job
 def mainWorker():
