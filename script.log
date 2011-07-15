@@ -1,0 +1,7 @@
+# 20110715.155429 
+$ where am i?
+/bin/sh: where: not found
+$ who? 
+karthik  tty7         2011-07-15 09:52 (:0)
+karthik  pts/1        2011-07-15 13:19 (:0.0)
+$ 

@@ -8,8 +8,8 @@ from encryptData import encryptDESAndWriteData
 from findDiff  import findDiffOfDirs
 
 # Test inputs for GAppID and SPwd - success
-print encryptDESAndWriteData('APIKey', 'UName', 'keys.txt', '')
-appid,uname = encryptData.readDataAndDecryptDES('keys.txt', '')
+print encryptDESAndWriteData('APIKey', 'UName', 'code-comparison.txt', 'Key')
+appid,uname = encryptData.readDataAndDecryptDES('code-comparison.txt', 'Key')
 
 print appid
 print uname
