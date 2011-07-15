@@ -1,0 +1,99 @@
+There are currently 9 unprocessed TEST jobs.
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+There are currently 0 unprocessed TEST jobs.
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "python -V", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "java -version", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "git --version", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "python master/code-worker/tasks/pep8/pep8.py -h", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "python master/code-worker/tasks/clonedigger/clonedigger.py -h", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "python master/code-worker/tasks/pep8/pep8.py target --count -qq", "target": "git@github.com:SMU-SIS/code-worker.git", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "python code-worker/tasks/clonedigger/clonedigger.py --fast target", "target": "git@github.com:SMU-SIS/code-worker.git", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "python master/code-worker/tasks/pep8/pep8.py target --count -qq", "target": "git@github.com:SMU-SIS/CodeComparison.git", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "master": "git@github.com:SMU-SIS/CodeComparison.git", "command": "diff -q target master", "target": "git@github.com:SMU-SIS/CodeComparison.git", "jobType": "TEST"}
+There are currently 9 unprocessed TEST jobs.
+There are currently 9 unprocessed TEST jobs.
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+There are currently 0 unprocessed TEST jobs.
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "python -V", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "java -version", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "git --version", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "python master/code-worker/tasks/pep8/pep8.py -h", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "python master/code-worker/tasks/clonedigger/clonedigger.py -h", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "python master/code-worker/tasks/pep8/pep8.py target --count -qq", "target": "git@github.com:SMU-SIS/code-worker.git", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "python code-worker/tasks/clonedigger/clonedigger.py --fast target", "target": "git@github.com:SMU-SIS/code-worker.git", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "python master/code-worker/tasks/pep8/pep8.py target --count -qq", "target": "git@github.com:SMU-SIS/CodeComparison.git", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "master": "git@github.com:SMU-SIS/CodeComparison.git", "command": "diff -q target master", "target": "git@github.com:SMU-SIS/CodeComparison.git", "jobType": "TEST"}
+There are currently 9 unprocessed TEST jobs.
+There are currently 9 unprocessed TEST jobs.
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+There are currently 0 unprocessed TEST jobs.
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "python -V", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "java -version", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "git --version", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "python master/code-worker/tasks/pep8/pep8.py -h", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "python master/code-worker/tasks/clonedigger/clonedigger.py -h", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "python master/code-worker/tasks/pep8/pep8.py target --count -qq", "target": "git@github.com:SMU-SIS/code-worker.git", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "python code-worker/tasks/clonedigger/clonedigger.py --fast target", "target": "git@github.com:SMU-SIS/code-worker.git", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "command": "python master/code-worker/tasks/pep8/pep8.py target --count -qq", "target": "git@github.com:SMU-SIS/CodeComparison.git", "jobType": "TEST"}
+Creating job to run command http://code-comparison.appspot.com/rest/Job {"workerReserved": "none", "master": "git@github.com:SMU-SIS/CodeComparison.git", "command": "diff -q target master", "target": "git@github.com:SMU-SIS/CodeComparison.git", "jobType": "TEST"}
+There are currently 9 unprocessed TEST jobs.
+There are currently 9 unprocessed TEST jobs.
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Marking existing TEST job as PROCESSED
+Traceback (most recent call last):
+  File "worker-readiness-test.py", line 27, in <module>
+    result = get_unprocessed_test_jobs()
+  File "worker-readiness-test.py", line 11, in get_unprocessed_test_jobs
+    result = json.loads(urllib2.urlopen(urllib2.Request(url, data, {'Content-Type': 'application/json'})).read())
+  File "/usr/lib/python2.7/urllib2.py", line 126, in urlopen
+    return _opener.open(url, data, timeout)
+  File "/usr/lib/python2.7/urllib2.py", line 391, in open
+    response = self._open(req, data)
+  File "/usr/lib/python2.7/urllib2.py", line 409, in _open
+    '_open', req)
+  File "/usr/lib/python2.7/urllib2.py", line 369, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python2.7/urllib2.py", line 1185, in http_open
+    return self.do_open(httplib.HTTPConnection, req)
+  File "/usr/lib/python2.7/urllib2.py", line 1156, in do_open
+    r = h.getresponse(buffering=True)
+  File "/usr/lib/python2.7/httplib.py", line 1027, in getresponse
+    response.begin()
+  File "/usr/lib/python2.7/httplib.py", line 407, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python2.7/httplib.py", line 365, in _read_status
+    line = self.fp.readline()
+  File "/usr/lib/python2.7/socket.py", line 447, in readline
+    data = self._sock.recv(self._rbufsize)
+KeyboardInterrupt

@@ -29,7 +29,7 @@ github = Github(username=GITHUB_USER, api_token=GITHUB_TOKEN)
 baseURL = 'http://code-comparison.appspot.com/rest/'
 noJobs = False
 itr = 0
-wrkrName = 'worker1'
+wrkrName = 'laptop'
 
 # The main worker thread that fetches a job
 def mainWorker():

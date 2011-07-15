@@ -1,1 +1,17 @@
-Python 2.7.1+
+Traceback (most recent call last):
+  File "master/code-worker/tasks/pep8/pep8.py", line 1360, in <module>
+    _main()
+  File "master/code-worker/tasks/pep8/pep8.py", line 1343, in _main
+    input_dir(path, runner=runner)
+  File "master/code-worker/tasks/pep8/pep8.py", line 1051, in input_dir
+    runner(os.path.join(root, filename))
+  File "master/code-worker/tasks/pep8/pep8.py", line 1027, in input_file
+    errors = Checker(filename).check_all()
+  File "master/code-worker/tasks/pep8/pep8.py", line 953, in check_all
+    for token in tokenize.generate_tokens(self.readline_check_physical):
+  File "/usr/lib/python2.7/tokenize.py", line 351, in generate_tokens
+    ("<tokenize>", lnum, pos, line))
+  File "<tokenize>", line 47
+    <script type="text/javascript">
+    ^
+IndentationError: unindent does not match any outer indentation level
