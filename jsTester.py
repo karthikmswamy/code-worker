@@ -49,10 +49,16 @@ def mainThread():
 	print 'Waiting for the Java instance to warm-up'
 	time.sleep(1)
 	brwsr = subprocess.Popen('chromium-browser http://localhost:9876/capture',shell=True)
-	print os.path.abspath('.')
+
+	# Run the unit tests
 	execCmd = 'sh ../' + repoFolder + '/gui/scripts/test.sh'
 	# Capture log in a text file
-	os.system(execCmd + '>log.txt')
+	os.system(execCmd + '>logUnitTest.txt')
+
+	# Run the e2e tests
+	execCmd = 'sh ../' + repoFolder + '/gui/scripts/testE2E.sh'
+	# Capture log in a text file
+	os.system(execCmd + '>logE2ETest.txt')
 
 	# Capturing output of the device on log.txt
 	#fnull = open('log.txt', 'w')
