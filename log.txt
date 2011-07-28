@@ -1,17 +1,51 @@
-Traceback (most recent call last):
-  File "master/code-worker/tasks/pep8/pep8.py", line 1360, in <module>
-    _main()
-  File "master/code-worker/tasks/pep8/pep8.py", line 1343, in _main
-    input_dir(path, runner=runner)
-  File "master/code-worker/tasks/pep8/pep8.py", line 1051, in input_dir
-    runner(os.path.join(root, filename))
-  File "master/code-worker/tasks/pep8/pep8.py", line 1027, in input_file
-    errors = Checker(filename).check_all()
-  File "master/code-worker/tasks/pep8/pep8.py", line 953, in check_all
-    for token in tokenize.generate_tokens(self.readline_check_physical):
-  File "/usr/lib/python2.7/tokenize.py", line 351, in generate_tokens
-    ("<tokenize>", lnum, pos, line))
-  File "<tokenize>", line 47
-    <script type="text/javascript">
-    ^
-IndentationError: unindent does not match any outer indentation level
+FFF.
+Total 4 tests (Passed: 1; Fails: 3; Errors: 0) (4.00 ms)
+  Chrome 12.0.742.112 Linux: Run 4 tests (Passed: 1; Fails: 3; Errors 0) (4.00 ms)
+    PhoneCat controllers PhoneListCtrl.should create "phones" model with 2 phones fetched from xhr failed (4.00 ms): Error: Error: Unexpected request for method 'GET' and url '../../jsonapi/phones/phones.json'.
+TypeError: TypeError: Cannot read property 'phones' of undefined
+            Error: Unexpected request for method 'GET' and url '../../jsonapi/phones/phones.json'.
+            at Object.xhr (test/lib/angular/angular-mocks.js:118:13)
+            at app/lib/angular/angular.js:7849:14
+            at Function.bulkXHR [as delegate] (app/lib/angular/angular.js:7567:7)
+            at Object.cache [as xhr] (app/lib/angular/angular.js:7647:15)
+            at Function.query (app/lib/angular/angular.js:2939:14)
+            at new PhoneListCtrl (app/js/controllers.js:24:24)
+            at PhoneListCtrl.inject [as $service] (app/lib/angular/angular.js:2113:27)
+            at Object.<anonymous> (app/lib/angular/angular.js:1994:27)
+            at Object.$new (app/lib/angular/angular.js:2021:21)
+            at [object Object].<anonymous> (test/unit/controllersSpec.js:22:20)
+      
+            TypeError: Cannot read property 'phones' of undefined
+            at [object Object].<anonymous> (test/unit/controllersSpec.js:27:18)
+
+    PhoneCat controllers PhoneListCtrl.should set the default value of orderProp model failed (0.00 ms): Error: Error: Unexpected request for method 'GET' and url '../../jsonapi/phones/phones.json'.
+TypeError: TypeError: Cannot read property 'orderProp' of undefined
+            Error: Unexpected request for method 'GET' and url '../../jsonapi/phones/phones.json'.
+            at Object.xhr (test/lib/angular/angular-mocks.js:118:13)
+            at app/lib/angular/angular.js:7849:14
+            at Function.bulkXHR [as delegate] (app/lib/angular/angular.js:7567:7)
+            at Object.cache [as xhr] (app/lib/angular/angular.js:7647:15)
+            at Function.query (app/lib/angular/angular.js:2939:14)
+            at new PhoneListCtrl (app/js/controllers.js:24:24)
+            at PhoneListCtrl.inject [as $service] (app/lib/angular/angular.js:2113:27)
+            at Object.<anonymous> (app/lib/angular/angular.js:1994:27)
+            at Object.$new (app/lib/angular/angular.js:2021:21)
+            at [object Object].<anonymous> (test/unit/controllersSpec.js:22:20)
+      
+            TypeError: Cannot read property 'orderProp' of undefined
+            at [object Object].<anonymous> (test/unit/controllersSpec.js:36:18)
+
+    PhoneCat controllers PhoneDetailCtrl.should fetch phone detail failed (0.00 ms): Error: Error: Unexpected request for method 'GET' and url '../../jsonapi/phones/xyz.json'.
+            Error: Unexpected request for method 'GET' and url '../../jsonapi/phones/xyz.json'.
+            at Object.xhr (test/lib/angular/angular-mocks.js:118:13)
+            at app/lib/angular/angular.js:7849:14
+            at Function.bulkXHR [as delegate] (app/lib/angular/angular.js:7567:7)
+            at Object.cache [as xhr] (app/lib/angular/angular.js:7647:15)
+            at Function.get (app/lib/angular/angular.js:2939:14)
+            at new PhoneDetailCtrl (app/js/controllers.js:33:23)
+            at PhoneDetailCtrl.inject [as $service] (app/lib/angular/angular.js:2113:27)
+            at Object.<anonymous> (app/lib/angular/angular.js:1994:27)
+            at Object.$new (app/lib/angular/angular.js:2021:21)
+            at [object Object].<anonymous> (test/unit/controllersSpec.js:58:20)
+
+Tests failed: Tests failed. See log for details.

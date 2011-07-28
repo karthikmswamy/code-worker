@@ -12,7 +12,7 @@ from github2.client import Github
 from encryptData import encryptDESAndWriteData
 
 if len(sys.argv) < 3:
-	print 'Decryption key or worker name not found'
+	print 'Usage: python worker.py <decryptionkey> <workerName>'
 	sys.exit()
 elif len(sys.argv) == 3:
 	decKey = sys.argv[1]

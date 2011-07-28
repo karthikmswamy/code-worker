@@ -5,3 +5,4 @@ master/*
 target/*
 log.txt
 *.log
+TournamentServer-GUI/*
